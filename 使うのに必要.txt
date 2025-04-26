@@ -1,1 +1,41 @@
 <a target="_blank" href="https://icons8.com/icon/naDnVpQ3BNkR/portfolio">ポートフォリオ</a> アイコン by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+
+import React, { useState, useEffect, useRef } from "react";
+import img1 from "../img/365.png"; // 画像のパスを指定
+import img2 from "../img/css.png"; // 画像のパスを指定
+import img3 from "../img/fastapi.png"; // 画像のパスを指定
+import img4 from "../img/flask.png"; // 画像のパスを指定
+import img5 from "../img/github.png"; // 画像のパスを指定
+import img6 from "../img/gitlab.png"; // 画像のパスを指定
+import img7 from "../img/html.webp"; // 画像のパスを指定
+import img8 from "../img/JS.png"; // 画像のパスを指定
+import img9 from "../img/MySQL.png"; // 画像のパスを指定
+import img10 from "../img/php.png"; // 画像のパスを指定
+import img11 from "../img/python.png"; // 画像のパスを指定
+import img12 from "../img/react.jpg"; // 画像のパスを指定
+import img13 from "../img/swift.jpg"; // 画像のパスを指定
+import img14 from "../img/tailwind.png"; // 画像のパスを指定
+import img15 from "../img/TS.png"; // 画像のパスを指定
+import img16 from "../img/ubuntu.png"; // 画像のパスを指定
+import img17 from "../img/Vitepng.png"; // 画像のパスを指定
+
+const images = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
+  img17,
+]; // 画像のパスを指定
