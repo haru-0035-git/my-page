@@ -12,11 +12,21 @@ const App: React.FC = () => {
   return (
     <div>
       <Header />
-      <Body />
-      <About />
-      <Timeline />
-      <Works />
-      <Skills />
+      <div id="body">
+        <Body />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="timeline">
+        <Timeline />
+      </div>
+      <div id="works">
+        <Works />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
       <Footer />
     </div>
   );

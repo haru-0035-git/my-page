@@ -37,6 +37,8 @@ const images = [
   img17,
 ]; // 画像のパスを指定
 
+const Portfolio = "My Portfolio"; // スライドに表示するテキスト
+
 const ImageSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
@@ -89,10 +91,25 @@ const ImageSlider: React.FC = () => {
           left: 0,
           width: "100vw",
           height: "100vh", // 高さを100vhに変更
-          backgroundColor: "rgba(128, 128, 128, 0.3)", // 50%透過の青色
+          backgroundColor: "rgba(138, 183, 210, 0.3)", // 50%透過の青色
           zIndex: 3, // スライドの上にかぶせる
         }}
       />
+      <div>
+        <h1
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            color: "#000", // テキストの色
+            fontSize: "6rem", // フォントサイズ
+            zIndex: 4, // スライドの上にかぶせる
+          }}
+        >
+          {Portfolio}
+        </h1>
+      </div>
       <div
         style={{
           display: "flex",
@@ -117,6 +134,7 @@ const ImageSlider: React.FC = () => {
               display: "flex", // 中央配置のため
               justifyContent: "center", // 水平方向の中央
               alignItems: "center", // 垂直方向の中央
+              opacity: "0.8", // 画像の透明度
             }}
           >
             <img
