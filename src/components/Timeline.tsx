@@ -12,6 +12,9 @@ const timelineData = [
 const Timeline: React.FC = () => {
   return (
     <section style={{ backgroundColor: "#b3e5fc", padding: "40px 20px" }}>
+      <h1 style={{ textAlign: "center", fontSize: "65px", fontStyle: "bold" }}>
+        TimeLine
+      </h1>
       <div
         style={{
           maxWidth: "800px",
