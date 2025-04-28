@@ -6,11 +6,12 @@ const About: React.FC = () => {
   return (
     <section
       style={{
-        padding: "40px 20px",
+        padding: "40px 20px 100px 20px",
         textAlign: "center",
         display: "flex",
         flexDirection: "column", // まず縦並びにする！
         alignItems: "center",
+        margin: "40px",
       }}
     >
       {/* h1だけ上に置く */}
