@@ -1,10 +1,27 @@
 // src/components/Works.tsx
+import exp from "constants";
 import React from "react";
 
 const worksData = [
-  { title: "作品タイトル1", githubUrl: "https://github.com/yourname/project1" },
-  { title: "作品タイトル2", githubUrl: "https://github.com/yourname/project2" },
-  { title: "作品タイトル3", githubUrl: "https://github.com/yourname/project3" },
+  {
+    title: "Word Trainer",
+    githubUrl: "",
+    explanation:
+      "英単語やIPAの単語を覚えるためのアプリです。Reactを使用しています。",
+    progress: "進捗率: 30%",
+  },
+  {
+    title: "ポートフォリオ",
+    githubUrl: " https://github.com/moteki-0035-git/my-page",
+    explanation: "自分のポートフォリオサイトです。Reactを使用しています。",
+    progress: "進捗率: 80%",
+  },
+  {
+    title: "家計簿アプリ",
+    githubUrl: "https://github.com/moteki-0035-git/flask-app",
+    explanation: "Flaskを使用した家計簿アプリです。",
+    progress: "進捗率: 70%",
+  },
 ];
 
 const Works: React.FC = () => {
@@ -30,9 +47,11 @@ const Works: React.FC = () => {
               textAlign: "center",
             }}
           >
-            <h3>{work.title}</h3>
+            <h2>{work.title}</h2>
+            <p>{work.explanation}</p>
+            <p>{work.progress}</p>
             <a href={work.githubUrl} target="_blank" rel="noopener noreferrer">
-              GitHubを見る
+              githubを見る
             </a>
           </div>
         ))}
