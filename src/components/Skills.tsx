@@ -1,5 +1,5 @@
 // src/components/Skills.tsx
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import img1 from "../img/365.png"; // 画像のパスを指定
 import img2 from "../img/css.png"; // 画像のパスを指定
 import img3 from "../img/fastapi.png"; // 画像のパスを指定
@@ -221,15 +221,72 @@ type Skill = {
 };
 
 type SkillWithImage = Skill & { imgPath: string };
-const categorizedSkills: { [key: string]: SkillWithImage[] } = {}; // 🔧 修正済み！
+const categorizedSkills: { [key: string]: SkillWithImage[] } = {};
 
-skillsData.forEach((skill, index) => {
-  const cat = skill.category;
-  if (!categorizedSkills[cat]) categorizedSkills[cat] = [];
-  categorizedSkills[cat].push({ ...skill, imgPath: images[index] });
+// まず、画像を紐付ける
+const skillsWithImages = skillsData.map((skill, index) => ({
+  ...skill,
+  imgPath: images[index],
+}));
+
+// カテゴリーごとにグループ化し、その中でレベル順にソート（降順）
+Object.values(
+  skillsWithImages.reduce((acc, skill) => {
+    const cat = skill.category;
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(skill);
+    return acc;
+  }, {} as { [key: string]: SkillWithImage[] })
+).forEach((skills) => {
+  const cat = skills[0].category;
+  categorizedSkills[cat] = skills.sort((a, b) => b.levelValue - a.levelValue); // 降順に変更
 });
 
 const Skills: React.FC = () => {
+  const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const skillRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  // refCallbackを追加
+  const setRef = useCallback(
+    (element: HTMLDivElement | null, category: string) => {
+      if (skillRefs.current) {
+        skillRefs.current[category] = element;
+      }
+    },
+    []
+  );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.id) {
+            setIsVisible((prev) => ({
+              ...prev,
+              [entry.target.id]: entry.isIntersecting,
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    Object.keys(categorizedSkills).forEach((category) => {
+      if (skillRefs.current[category]) {
+        observer.observe(skillRefs.current[category]!);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // スタイルの定義
+  const fadeInStyle = (visible: boolean) => ({
+    opacity: visible ? 1 : 0,
+    transform: visible ? "translateY(0)" : "translateY(20px)",
+    transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+  });
+
   return (
     <section
       style={{
@@ -250,16 +307,31 @@ const Skills: React.FC = () => {
         }}
       >
         {Object.entries(categorizedSkills).map(([category, skills]) => (
-          <div key={category} style={{ marginBottom: "40px" }}>
-            <h3 style={{ fontSize: "40px", marginBottom: "20px" }}>
+          <div
+            key={category}
+            ref={(el) => setRef(el, category)}
+            id={category}
+            style={{
+              marginBottom: "40px",
+              width: "100%",
+              ...fadeInStyle(isVisible[category] || false),
+            }}
+          >
+            <h3
+              style={{
+                marginBottom: "20px",
+                fontSize: "24px",
+                color: "#333",
+              }}
+            >
               {category}
             </h3>
             <div
               style={{
                 display: "flex",
-                justifyContent: "center",
-                gap: "20px",
                 flexWrap: "wrap",
+                gap: "20px",
+                justifyContent: "center",
               }}
             >
               {skills.map((skill, index) => (
