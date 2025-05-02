@@ -1,90 +1,40 @@
 // src/components/Timeline.tsx
 import React from "react";
-
+import TimelineItem from "./TimelineItem";
 const timelineData = [
-  { year: "2023年04月", text: "専門学校入学　Python,MySQLに初めて触る" },
+  { year: "2023年04月", text: "専門学校入学 Python,MySQLに初めて触る" },
   { year: "2023年08月", text: "ITパスポート合格" },
   { year: "2024年03月", text: "基本情報技術者試験合格" },
+  { year: "2024年04月", text: "javascript,PHPに初めて触る" },
   { year: "2024年06月", text: "paiza Cランク獲得" },
+  {
+    year: "2024年09月",
+    text: "flaskを初めて触る。フレームワークに初めて触る。",
+  },
+  { year: "2024年11月", text: "reactに初めて触る。" },
   { year: "2025年01月~2025年04月", text: "入学式プレゼンテーションに参加" },
 ];
 
 const Timeline: React.FC = () => {
   return (
-    <section style={{ backgroundColor: "#b3e5fc", padding: "40px 20px" }}>
-      <h1 style={{ textAlign: "center", fontSize: "65px", fontStyle: "bold" }}>
-        TimeLine
-      </h1>
+    <section style={{ backgroundColor: "#b3e5fc", padding: "60px 20px" }}>
       <div
-        style={{
-          maxWidth: "800px",
-          margin: "0 auto",
-          position: "relative",
-        }}
+        style={{ maxWidth: "800px", margin: "0 auto", position: "relative" }}
       >
+        {/* 縦線 */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: "167px",
+            width: "4px",
+            height: "100%",
+            backgroundColor: "#000",
+            zIndex: 0,
+          }}
+        />
         {timelineData.map((item, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              marginBottom: "20px",
-              marginTop: "20px",
-            }}
-          >
-            <div
-              style={{
-                width: "120px",
-                textAlign: "right",
-                paddingRight: "30px",
-                marginTop: "40px",
-                fontStyle: "italic",
-                fontSize: "20px",
-              }}
-            >
-              {item.year}
-            </div>
-            <div
-              style={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "40px",
-                height: "100%",
-              }}
-            >
-              <div
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  backgroundColor: "black",
-                  borderRadius: "50%",
-                  zIndex: "111",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  transform: "translateX(-50%)", // 左右のズレを補正
-                  width: "4px",
-                  height: "200%",
-                  backgroundColor: "#fff",
-                  zIndex: 11,
-                }}
-              />
-            </div>
-            <div
-              style={{
-                marginLeft: "40px",
-                marginTop: "40px",
-                fontSize: "22px",
-                lineHeight: "1.5",
-                fontStyle: "Bold",
-              }}
-            >
-              {item.text}
-            </div>
-          </div>
+          <TimelineItem key={index} year={item.year} text={item.text} />
         ))}
       </div>
     </section>
