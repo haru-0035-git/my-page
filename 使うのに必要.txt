@@ -39,3 +39,9 @@ const images = [
   img16,
   img17,
 ]; // 画像のパスを指定
+
+
+
+デプロイ
+render
+vercel
