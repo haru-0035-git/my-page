@@ -1,6 +1,5 @@
 // src/components/TimelineItem.tsx
 import React from "react";
-import { useInView } from "react-intersection-observer";
 
 interface TimelineItemProps {
   year: string;
@@ -8,52 +7,46 @@ interface TimelineItemProps {
 }
 
 const TimelineItem: React.FC<TimelineItemProps> = ({ year, text }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
-
   return (
     <div
-      ref={ref}
-      className={`fade-in-section ${inView ? "is-visible" : ""}`}
       style={{
         display: "flex",
-        alignItems: "center",
+        marginBottom: "30px",
         position: "relative",
-        marginBottom: "60px",
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(20px)",
-        transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+        zIndex: 1,
       }}
     >
       <div
         style={{
-          width: "120px",
+          width: window.innerWidth <= 768 ? "70px" : "110px",
+          flexShrink: 0,
           textAlign: "right",
-          paddingRight: "30px",
-          fontStyle: "italic",
-          fontSize: "20px",
+          paddingRight: "20px",
+          fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+          fontWeight: "bold",
         }}
       >
         {year}
       </div>
       <div
         style={{
-          width: "30px",
-          height: "30px",
-          backgroundColor: "white",
+          width: "20px",
+          height: "20px",
+          backgroundColor: "#fff",
+          border: "4px solid #000",
           borderRadius: "50%",
-          border: "4px solid #ffffff",
-          zIndex: 2,
+          marginRight: "20px",
+          marginTop: "-2px",
+          flexShrink: 0,
         }}
       />
       <div
         style={{
-          marginLeft: "40px",
-          fontSize: "22px",
-          lineHeight: "1.5",
-          fontWeight: "bold",
+          flex: 1,
+          backgroundColor: "#fff",
+          padding: "10px 15px",
+          borderRadius: "5px",
+          fontSize: window.innerWidth <= 768 ? "14px" : "16px",
         }}
       >
         {text}

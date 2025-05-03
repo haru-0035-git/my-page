@@ -17,16 +17,26 @@ const timelineData = [
 
 const Timeline: React.FC = () => {
   return (
-    <section style={{ backgroundColor: "#b3e5fc", padding: "60px 20px" }}>
+    <section
+      style={{
+        backgroundColor: "#b3e5fc",
+        padding: window.innerWidth <= 768 ? "40px 10px" : "60px 20px",
+      }}
+    >
       <div
-        style={{ maxWidth: "800px", margin: "0 auto", position: "relative" }}
+        style={{
+          maxWidth: window.innerWidth <= 768 ? "100%" : "800px",
+          margin: "0 auto",
+          position: "relative",
+          padding: window.innerWidth <= 768 ? "0 10px" : "0",
+        }}
       >
         {/* 縦線 */}
         <div
           style={{
             position: "absolute",
             top: 0,
-            left: "167px",
+            left: window.innerWidth <= 768 ? "70px" : "110px",
             width: "4px",
             height: "100%",
             backgroundColor: "#000",

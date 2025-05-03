@@ -141,9 +141,9 @@ const ImageSlider: React.FC = () => {
               src={src}
               alt={`Slide ${index}`}
               style={{
-                width: "500px", // 画像の大きさ
-                height: "500px", // 画像の大きさ
-                objectFit: "contain", // 縦横比を保ちながら表示
+                width: window.innerWidth <= 768 ? "200px" : "500px", // スマホ時は小さく
+                height: window.innerWidth <= 768 ? "200px" : "500px",
+                objectFit: "contain",
               }}
             />
           </div>

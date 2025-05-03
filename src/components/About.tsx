@@ -18,7 +18,7 @@ const About: React.FC = () => {
       <h1
         style={{
           marginBottom: "30px",
-          fontSize: "65px",
+          fontSize: window.innerWidth <= 768 ? "40px" : "65px",
           fontWeight: "bold",
           color: "#333",
         }}
@@ -32,17 +32,29 @@ const About: React.FC = () => {
           maxWidth: "800px",
           margin: "0 auto",
           display: "flex",
-          flexDirection: "row", // ここだけ横並び
+          flexDirection: window.innerWidth <= 768 ? "column" : "row",
           justifyContent: "center",
           alignItems: "center",
+          padding: window.innerWidth <= 768 ? "0 15px" : "0",
         }}
       >
         <img
           src={logo}
           alt="ロゴ"
-          style={{ width: "200px", marginRight: "20px" }}
+          style={{
+            width: window.innerWidth <= 768 ? "150px" : "200px",
+            marginRight: window.innerWidth <= 768 ? "0" : "20px",
+            marginBottom: window.innerWidth <= 768 ? "20px" : "0",
+          }}
         />
-        <p style={{ maxWidth: "600px", textAlign: "left", fontSize: "18px" }}>
+        <p
+          style={{
+            maxWidth: "600px",
+            textAlign: "left",
+            fontSize: window.innerWidth <= 768 ? "16px" : "18px",
+            padding: window.innerWidth <= 768 ? "0 10px" : "0",
+          }}
+        >
           専門学校に在学中のしがない学生で日々勉強に邁進しています。
           セキュリティやインフラなどに興味を持っています。
           reactを使う機会が多くなってきたので、reactを使った開発を行っています。

@@ -10,12 +10,14 @@ const Header: React.FC = () => {
         top: 0,
         left: 0,
         width: "100%",
-        height: "80px",
-        backgroundColor: "#424b57", // ダークグレー
+        height: "auto",
+        minHeight: window.innerWidth <= 768 ? "50px" : "60px",
+        backgroundColor: "#424b57",
         display: "flex",
+        flexDirection: window.innerWidth <= 768 ? "column" : "row",
         alignItems: "center",
-        justifyContent: "space-between", // 左右にロゴとナビを分ける
-        padding: "0 60px",
+        justifyContent: "space-between",
+        padding: window.innerWidth <= 768 ? "5px" : "0 60px",
         boxSizing: "border-box",
         zIndex: 1000,
       }}
@@ -25,21 +27,29 @@ const Header: React.FC = () => {
         src={logo}
         alt="ロゴ"
         style={{
-          width: "100px",
+          width: window.innerWidth <= 768 ? "40px" : "100px",
           height: "auto",
-          borderRadius: "50%", // 丸く切り抜き
-          objectFit: "cover", // 画像を中央にトリミング
+          borderRadius: "50%",
+          marginBottom: window.innerWidth <= 768 ? "5px" : "0",
         }}
       />
 
       {/* ナビゲーション */}
-      <nav style={{ display: "flex", gap: "30px" }}>
+      <nav
+        style={{
+          display: "flex",
+          gap: window.innerWidth <= 768 ? "10px" : "30px",
+          flexDirection: window.innerWidth <= 768 ? "row" : "row",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
         <a
           href="#body"
           style={{
             color: "#fff",
             textDecoration: "none",
-            fontSize: "20px",
+            fontSize: window.innerWidth <= 768 ? "14px" : "20px",
             fontWeight: "bold",
           }}
         >
@@ -50,7 +60,7 @@ const Header: React.FC = () => {
           style={{
             color: "#fff",
             textDecoration: "none",
-            fontSize: "20px",
+            fontSize: window.innerWidth <= 768 ? "14px" : "20px",
             fontWeight: "bold",
           }}
         >
@@ -61,7 +71,7 @@ const Header: React.FC = () => {
           style={{
             color: "#fff",
             textDecoration: "none",
-            fontSize: "20px",
+            fontSize: window.innerWidth <= 768 ? "14px" : "20px",
             fontWeight: "bold",
           }}
         >
@@ -72,7 +82,7 @@ const Header: React.FC = () => {
           style={{
             color: "#fff",
             textDecoration: "none",
-            fontSize: "20px",
+            fontSize: window.innerWidth <= 768 ? "14px" : "20px",
             fontWeight: "bold",
           }}
         >
@@ -83,7 +93,7 @@ const Header: React.FC = () => {
           style={{
             color: "#fff",
             textDecoration: "none",
-            fontSize: "20px",
+            fontSize: window.innerWidth <= 768 ? "14px" : "20px",
             fontWeight: "bold",
           }}
         >

@@ -295,7 +295,7 @@ const Skills: React.FC = () => {
         textAlign: "center",
       }}
     >
-      <h2 style={{ marginBottom: "30px", fontSize: "65px", fontStyle: "Bold" }}>
+      <h2 style={{ marginBottom: "30px", fontSize: "45px", fontStyle: "Bold" }}>
         技術修練度
       </h2>
       <div
@@ -314,13 +314,14 @@ const Skills: React.FC = () => {
             style={{
               marginBottom: "40px",
               width: "100%",
+              maxWidth: "600px", // 最大幅を設定
               ...fadeInStyle(isVisible[category] || false),
             }}
           >
             <h3
               style={{
                 marginBottom: "20px",
-                fontSize: "24px",
+                fontSize: "20px",
                 color: "#333",
               }}
             >
@@ -330,7 +331,7 @@ const Skills: React.FC = () => {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "20px",
+                gap: "10px",
                 justifyContent: "center",
               }}
             >
@@ -340,19 +341,48 @@ const Skills: React.FC = () => {
                   style={{
                     border: "1px solid #ccc",
                     borderRadius: "8px",
-                    width: "150px",
-                    padding: "20px",
+                    width:
+                      window.innerWidth <= 768
+                        ? "calc(100% - 20px)"
+                        : "calc(50% - 10px)",
+                    maxWidth: "150px",
+                    padding: window.innerWidth <= 768 ? "15px" : "20px",
                     backgroundColor: "white",
+                    margin: window.innerWidth <= 768 ? "5px" : "10px",
                   }}
                 >
-                  <h4>{skill.name}</h4>
+                  <h4
+                    style={{
+                      fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+                      margin: "5px 0",
+                    }}
+                  >
+                    {skill.name}
+                  </h4>
                   <img
                     src={skill.imgPath}
                     alt={skill.name}
-                    style={{ width: "50px", height: "auto" }}
+                    style={{
+                      width: window.innerWidth <= 768 ? "30px" : "40px",
+                      height: "auto",
+                    }}
                   />
-                  <p>{skill.explanation}</p>
-                  <p>{skill.level}</p>
+                  <p
+                    style={{
+                      fontSize: window.innerWidth <= 768 ? "10px" : "12px",
+                      margin: "5px 0",
+                    }}
+                  >
+                    {skill.explanation}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: window.innerWidth <= 768 ? "10px" : "12px",
+                      margin: "5px 0",
+                    }}
+                  >
+                    {skill.level}
+                  </p>
                 </div>
               ))}
             </div>
