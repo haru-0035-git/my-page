@@ -4,9 +4,14 @@ import React from "react";
 interface TimelineItemProps {
   year: string;
   text: string;
+  isMobile: boolean;
 }
 
-const TimelineItem: React.FC<TimelineItemProps> = ({ year, text }) => {
+const TimelineItem: React.FC<TimelineItemProps> = ({
+  year,
+  text,
+  isMobile,
+}) => {
   return (
     <div
       style={{
@@ -18,11 +23,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, text }) => {
     >
       <div
         style={{
-          width: window.innerWidth <= 768 ? "70px" : "110px",
+          width: isMobile ? "60px" : "100px",
           flexShrink: 0,
           textAlign: "right",
           paddingRight: "20px",
-          fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+          fontSize: isMobile ? "14px" : "16px",
           fontWeight: "bold",
         }}
       >
@@ -38,6 +43,9 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, text }) => {
           marginRight: "20px",
           marginTop: "-2px",
           flexShrink: 0,
+          position: "relative",
+          zIndex: 2,
+          transform: "translateX(-2px)",
         }}
       />
       <div
@@ -46,7 +54,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, text }) => {
           backgroundColor: "#fff",
           padding: "10px 15px",
           borderRadius: "5px",
-          fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+          fontSize: isMobile ? "14px" : "16px",
         }}
       >
         {text}
