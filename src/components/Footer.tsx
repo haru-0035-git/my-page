@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         textAlign: "center",
       }}
     >
-      <p>© 2023 moteki-0035-git</p>
+      <p>© 2023 haru-0035-git</p>
       <a target="_blank" href="https://icons8.com/icon/naDnVpQ3BNkR/portfolio">
         ポートフォリオ
       </a>
