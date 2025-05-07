@@ -14,6 +14,7 @@ const timelineData = [
   },
   { year: "2024年11月", text: "reactに初めて触る。" },
   { year: "2025年01月~2025年04月", text: "入学式プレゼンテーションに参加" },
+  { year: "2025年05月", text: "paizaBランク獲得" },
 ];
 
 const Timeline: React.FC = () => {

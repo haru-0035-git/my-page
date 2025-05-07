@@ -130,7 +130,7 @@ const skillsData = [
     name: "Python",
     level: "修練度 中",
     img: "img11",
-    explanation: "授業で主に使っている言語。paizaでCランクを獲得した。",
+    explanation: "授業で主に使っている言語。paizaでBランクを獲得した。",
     levelValue: 2,
     category: "言語",
   },
