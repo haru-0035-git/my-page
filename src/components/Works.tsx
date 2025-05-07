@@ -5,7 +5,7 @@ import React from "react";
 const worksData = [
   {
     title: "Word Trainer",
-    githubUrl: "",
+    githubUrl: "https://word-trainer-seven.vercel.app/",
     explanation:
       "英単語やIPAの単語を覚えるためのアプリです。Reactを使用しています。",
     progress: "進捗率: 30%",
