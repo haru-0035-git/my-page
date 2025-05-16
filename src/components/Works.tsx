@@ -18,9 +18,15 @@ const worksData = [
   },
   {
     title: "家計簿アプリ",
-    githubUrl: "https://github.com/haru-0035-git",
+    githubUrl: "https://github.com/haru-0035-git/flask-app",
+    explanation: "Flaskを使用した家計簿アプリです。学校の授業で作成しました。",
+    progress: "進捗率: 70%",
+  },
+  {
+    title: "家計簿アプリ",
+    githubUrl: "https://github.com/haru-0035-git/MyApp",
     explanation:
-      "Flaskを使用した家計簿アプリです。学校の授業で作成しました。非公開リポジトリなので、URLは私のGitHubのプロフィールページにしています。",
+      "マークダウンエディタです。Reactを使用しています。Reactの勉強のために作成しました。",
     progress: "進捗率: 70%",
   },
 ];
