@@ -12,14 +12,15 @@ const worksData = [
   },
   {
     title: "ポートフォリオ",
-    githubUrl: " https://github.com/moteki-0035-git/my-page",
+    githubUrl: " https://github.com/haru-0035-git/my-page",
     explanation: "自分のポートフォリオサイトです。Reactを使用しています。",
     progress: "進捗率: 80%",
   },
   {
     title: "家計簿アプリ",
-    githubUrl: "https://github.com/moteki-0035-git/flask-app",
-    explanation: "Flaskを使用した家計簿アプリです。",
+    githubUrl: "https://github.com/haru-0035-git",
+    explanation:
+      "Flaskを使用した家計簿アプリです。学校の授業で作成しました。非公開リポジトリなので、URLは私のGitHubのプロフィールページにしています。",
     progress: "進捗率: 70%",
   },
 ];
