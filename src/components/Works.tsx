@@ -8,7 +8,7 @@ const worksData = [
     githubUrl: "https://word-trainer-seven.vercel.app/",
     explanation:
       "英単語やIPAの単語を覚えるためのアプリです。Reactを使用しています。",
-    progress: "進捗率: 30%",
+    progress: "進捗率: 60%",
   },
   {
     title: "ポートフォリオ",
@@ -23,11 +23,17 @@ const worksData = [
     progress: "進捗率: 70%",
   },
   {
-    title: "家計簿アプリ",
+    title: "メモアプリ",
     githubUrl: "https://github.com/haru-0035-git/MyApp",
     explanation:
       "マークダウンエディタです。Reactを使用しています。Reactの勉強のために作成しました。",
     progress: "進捗率: 70%",
+  },
+  {
+    title: "ToDoアプリ",
+    githubUrl: "https://github.com/haru-0035-git/mytodo",
+    explanation: "あるあるのToDoアプリです。Nextjsの勉強のために作成中です。",
+    progress: "進捗率: 40%",
   },
 ];
 
