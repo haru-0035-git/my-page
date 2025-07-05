@@ -31,9 +31,10 @@ const worksData = [
   },
   {
     title: "ToDoアプリ",
-    githubUrl: "https://github.com/haru-0035-git/mytodo",
-    explanation: "あるあるのToDoアプリです。Nextjsの勉強のために作成中です。",
-    progress: "進捗率: 40%",
+    githubUrl: "https://mytodo-beryl.vercel.app/",
+    explanation:
+      "あるあるのToDoアプリです。Nextjsの勉強のために作成中です。※完成しました",
+    progress: "進捗率: 100%",
   },
 ];
 
