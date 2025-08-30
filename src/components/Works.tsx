@@ -33,7 +33,7 @@ const worksData = [
     title: "ToDoアプリ",
     githubUrl: "https://mytodo-beryl.vercel.app/",
     explanation:
-      "あるあるのToDoアプリです。Nextjsの勉強のために作成中です。※完成しました",
+      "あるあるのToDoアプリです。Nextjsの勉強のために作成中です。※完成しましたKOKO",
     progress: "進捗率: 100%",
   },
 ];
@@ -50,6 +50,8 @@ const Works: React.FC = () => {
         style={{
           marginBottom: "30px",
           fontSize: window.innerWidth <= 768 ? "24px" : "32px",
+          color: "#00ffff",
+          textShadow: "0 0 5px #00ffff, 0 0 10px #00ffff",
         }}
       >
         作った作品一覧
@@ -66,8 +68,10 @@ const Works: React.FC = () => {
           <div
             key={index}
             style={{
-              border: "1px solid #ccc",
+              border: "1px solid #ff00ff",
+              boxShadow: "0 0 10px #ff00ff",
               borderRadius: "8px",
+              backgroundColor: "rgba(13, 2, 33, 0.7)",
               width: window.innerWidth <= 768 ? "calc(100% - 40px)" : "200px",
               padding: window.innerWidth <= 768 ? "15px" : "20px",
               textAlign: "center",
@@ -78,6 +82,7 @@ const Works: React.FC = () => {
               style={{
                 fontSize: window.innerWidth <= 768 ? "20px" : "24px",
                 marginBottom: "10px",
+                color: "#00ffff",
               }}
             >
               {work.title}
@@ -86,6 +91,7 @@ const Works: React.FC = () => {
               style={{
                 fontSize: window.innerWidth <= 768 ? "14px" : "16px",
                 margin: "10px 0",
+                color: "#f0f0f0",
               }}
             >
               {work.explanation}
@@ -94,6 +100,7 @@ const Works: React.FC = () => {
               style={{
                 fontSize: window.innerWidth <= 768 ? "14px" : "16px",
                 margin: "10px 0",
+                color: "#f0f0f0",
               }}
             >
               {work.progress}
@@ -106,10 +113,12 @@ const Works: React.FC = () => {
                 fontSize: window.innerWidth <= 768 ? "14px" : "16px",
                 display: "inline-block",
                 padding: "5px 10px",
-                backgroundColor: "#f0f0f0",
+                backgroundColor: "#00ffff",
                 borderRadius: "4px",
                 textDecoration: "none",
-                color: "#333",
+                color: "#0d0221",
+                fontWeight: "bold",
+                boxShadow: "0 0 5px #00ffff",
               }}
             >
               githubを見る

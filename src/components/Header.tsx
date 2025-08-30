@@ -12,7 +12,9 @@ const Header: React.FC = () => {
         width: "100%",
         height: "auto",
         minHeight: window.innerWidth <= 768 ? "50px" : "60px",
-        backgroundColor: "#424b57",
+        backgroundColor: "rgba(13, 2, 33, 0.8)", // サイバーパンク風の背景色
+        backdropFilter: "blur(5px)", // 背景のブラー効果
+        boxShadow: "0 0 10px #00ffff", // ネオンのグロー効果
         display: "flex",
         flexDirection: window.innerWidth <= 768 ? "column" : "row",
         alignItems: "center",

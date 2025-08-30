@@ -4,9 +4,12 @@ const Footer: React.FC = () => {
   return (
     <footer
       style={{
-        backgroundColor: "#b3e5fc",
+        backgroundColor: "rgba(13, 2, 33, 0.8)",
+        backdropFilter: "blur(5px)",
+        boxShadow: "0 0 10px #00ffff",
         padding: "20px",
         textAlign: "center",
+        color: "#00ffff",
       }}
     >
       <p>© 2023 haru-0035-git</p>

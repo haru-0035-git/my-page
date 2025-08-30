@@ -12,6 +12,9 @@ const About: React.FC = () => {
         flexDirection: "column", // まず縦並びにする！
         alignItems: "center",
         margin: "40px",
+        backgroundColor: "rgba(13, 2, 33, 0.7)",
+        boxShadow: "0 0 15px #ff00ff, 0 0 25px #ff00ff", // マゼンタのネオンボーダー
+        borderRadius: "10px",
       }}
     >
       {/* h1だけ上に置く */}
@@ -20,7 +23,8 @@ const About: React.FC = () => {
           marginBottom: "30px",
           fontSize: window.innerWidth <= 768 ? "40px" : "65px",
           fontWeight: "bold",
-          color: "#333",
+          color: "#00ffff", // ネオンシアン
+          textShadow: "0 0 5px #00ffff, 0 0 10px #00ffff",
         }}
       >
         About Me
@@ -45,6 +49,8 @@ const About: React.FC = () => {
             width: window.innerWidth <= 768 ? "150px" : "200px",
             marginRight: window.innerWidth <= 768 ? "0" : "20px",
             marginBottom: window.innerWidth <= 768 ? "20px" : "0",
+            boxShadow: "0 0 10px #00ffff, 0 0 15px #00ffff",
+            borderRadius: "50%",
           }}
         />
         <p
@@ -53,6 +59,8 @@ const About: React.FC = () => {
             textAlign: "left",
             fontSize: window.innerWidth <= 768 ? "16px" : "18px",
             padding: window.innerWidth <= 768 ? "0 10px" : "0",
+            color: "#f0f0f0", // 少し明るい白
+            lineHeight: 1.8,
           }}
         >
           専門学校に在学中のしがない学生で日々勉強に邁進しています。

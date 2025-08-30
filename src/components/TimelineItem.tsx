@@ -50,6 +50,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
           paddingRight: "20px",
           fontSize: isMobile ? "14px" : "16px",
           fontWeight: "bold",
+          color: "#f0f0f0",
         }}
       >
         {year}
@@ -58,8 +59,9 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
         style={{
           width: "20px",
           height: "20px",
-          backgroundColor: "#fff",
-          border: "4px solid #000",
+          backgroundColor: "#0d0221",
+          border: "4px solid #00ffff",
+          boxShadow: "0 0 10px #00ffff",
           borderRadius: "50%",
           marginRight: "20px",
           marginTop: "-2px",
@@ -72,10 +74,12 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       <div
         style={{
           flex: 1,
-          backgroundColor: "#fff",
+          backgroundColor: "rgba(13, 2, 33, 0.7)",
+          boxShadow: "0 0 10px #ff00ff",
           padding: "10px 15px",
           borderRadius: "5px",
           fontSize: isMobile ? "14px" : "16px",
+          color: "#f0f0f0",
           opacity: isVisible ? 1 : 0,
           transform: `translateX(${isVisible ? 0 : "50px"})`,
           transition: "opacity 0.8s ease-out, transform 0.8s ease-out",

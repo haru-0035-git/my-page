@@ -91,7 +91,7 @@ const ImageSlider: React.FC = () => {
           left: 0,
           width: "100vw",
           height: "100vh", // 高さを100vhに変更
-          backgroundColor: "rgba(138, 183, 210, 0.3)", // 50%透過の青色
+          backgroundColor: "rgba(13, 2, 33, 0.7)", // サイバーパンク風のオーバーレイ
           zIndex: 3, // スライドの上にかぶせる
         }}
       />
@@ -102,9 +102,10 @@ const ImageSlider: React.FC = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            color: "#000", // テキストの色
+            color: "#00ffff", // ネオンカラーのテキスト
             fontSize: "6rem", // フォントサイズ
             zIndex: 4, // スライドの上にかぶせる
+            textShadow: "0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #ff00ff, 0 0 80px #ff00ff, 0 0 90px #ff00ff, 0 0 100px #ff00ff, 0 0 150px #ff00ff", // ネオン効果
           }}
         >
           {Portfolio}

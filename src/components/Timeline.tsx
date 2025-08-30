@@ -33,7 +33,7 @@ const Timeline: React.FC = () => {
   return (
     <section
       style={{
-        backgroundColor: "#b3e5fc",
+        backgroundColor: "#0d0221",
         padding: isMobile ? "40px 10px" : "60px 20px",
       }}
     >
@@ -53,7 +53,8 @@ const Timeline: React.FC = () => {
             left: isMobile ? "90px" : "130px",
             width: "4px",
             height: "100%",
-            backgroundColor: "#000",
+            backgroundColor: "#00ffff",
+            boxShadow: "0 0 5px #00ffff",
             zIndex: 1,
           }}
         />

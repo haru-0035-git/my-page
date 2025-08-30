@@ -1,26 +1,26 @@
 // src/components/Skills.tsx
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import img1 from "../img/365.png"; // 画像のパスを指定
-import img2 from "../img/css.png"; // 画像のパスを指定
-import img3 from "../img/fastapi.png"; // 画像のパスを指定
-import img4 from "../img/flask.png"; // 画像のパスを指定
-import img5 from "../img/github.png"; // 画像のパスを指定
-import img6 from "../img/gitlab.png"; // 画像のパスを指定
-import img7 from "../img/html.webp"; // 画像のパスを指定
-import img8 from "../img/JS.png"; // 画像のパスを指定
-import img9 from "../img/MySQL.png"; // 画像のパスを指定
-import img10 from "../img/php.png"; // 画像のパスを指定
-import img11 from "../img/python.png"; // 画像のパスを指定
-import img12 from "../img/react.jpg"; // 画像のパスを指定
-import img13 from "../img/swift.jpg"; // 画像のパスを指定
-import img14 from "../img/tailwind.png"; // 画像のパスを指定
-import img15 from "../img/TS.png"; // 画像のパスを指定
-import img16 from "../img/ubuntu.png"; // 画像のパスを指定
-import img17 from "../img/Vitepng.png"; // 画像のパスを指定
-import img18 from "../img/raspberry-pi.png"; // 画像のパスを指定
-import img19 from "../img/discord.png"; // 画像のパスを指定
-import img20 from "../img/docker.png"; // 画像のパスを指定
-import exp from "constants";
+import ProgressBar from "./ProgressBar";
+import img1 from "../img/365.png";
+import img2 from "../img/css.png";
+import img3 from "../img/fastapi.png";
+import img4 from "../img/flask.png";
+import img5 from "../img/github.png";
+import img6 from "../img/gitlab.png";
+import img7 from "../img/html.webp";
+import img8 from "../img/JS.png";
+import img9 from "../img/MySQL.png";
+import img10 from "../img/php.png";
+import img11 from "../img/python.png";
+import img12 from "../img/react.jpg";
+import img13 from "../img/swift.jpg";
+import img14 from "../img/tailwind.png";
+import img15 from "../img/TS.png";
+import img16 from "../img/ubuntu.png";
+import img17 from "../img/Vitepng.png";
+import img18 from "../img/raspberry-pi.png";
+import img19 from "../img/discord.png";
+import img20 from "../img/docker.png";
 
 const images = [
   img1,
@@ -290,20 +290,31 @@ const Skills: React.FC = () => {
   return (
     <section
       style={{
-        backgroundColor: "#b3e5fc",
+        backgroundColor: "#0d0221",
         padding: "40px 20px",
         textAlign: "center",
       }}
     >
-      <h2 style={{ marginBottom: "30px", fontSize: "45px", fontStyle: "Bold" }}>
+      <h2
+        style={{
+          marginBottom: "10px",
+          fontSize: "45px",
+          fontStyle: "Bold",
+          color: "#00ffff",
+          textShadow: "0 0 5px #00ffff, 0 0 10px #00ffff",
+        }}
+      >
         技術修練度
       </h2>
+      <p style={{ margin: "0 0 30px 0", color: "#f0f0f0" }}>
+        ※バーは修練度を表しています
+      </p>
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
           gap: "20px",
-          flexWrap: "wrap",
         }}
       >
         {Object.entries(categorizedSkills).map(([category, skills]) => (
@@ -322,7 +333,8 @@ const Skills: React.FC = () => {
               style={{
                 marginBottom: "20px",
                 fontSize: "20px",
-                color: "#333",
+                color: "#ff00ff",
+                textShadow: "0 0 5px #ff00ff",
               }}
             >
               {category}
@@ -331,30 +343,37 @@ const Skills: React.FC = () => {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "10px",
+                gap: "12px",
                 justifyContent: "center",
+                alignItems: "flex-start",
               }}
             >
               {skills.map((skill, index) => (
                 <div
                   key={index}
                   style={{
-                    border: "1px solid #ccc",
+                    border: "1px solid #00ffff",
+                    boxShadow: "0 0 10px #00ffff",
                     borderRadius: "8px",
-                    width:
-                      window.innerWidth <= 768
-                        ? "calc(100% - 20px)"
-                        : "calc(50% - 10px)",
-                    maxWidth: "150px",
-                    padding: window.innerWidth <= 768 ? "15px" : "20px",
-                    backgroundColor: "white",
-                    margin: window.innerWidth <= 768 ? "5px" : "10px",
+                    backgroundColor: "rgba(13, 2, 33, 0.7)",
+                    boxSizing: "border-box",
+                    width: "160px",
+                    height: "220px",
+                    padding: "12px",
+                    margin: "6px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    color: "#f0f0f0",
                   }}
                 >
                   <h4
                     style={{
-                      fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-                      margin: "5px 0",
+                      fontSize: "14px",
+                      margin: "4px 0",
+                      color: "#00ffff",
+                      textAlign: "center",
                     }}
                   >
                     {skill.name}
@@ -363,26 +382,23 @@ const Skills: React.FC = () => {
                     src={skill.imgPath}
                     alt={skill.name}
                     style={{
-                      width: window.innerWidth <= 768 ? "30px" : "40px",
-                      height: "auto",
+                      width: "48px",
+                      height: "48px",
+                      objectFit: "contain",
                     }}
                   />
                   <p
                     style={{
-                      fontSize: window.innerWidth <= 768 ? "10px" : "12px",
-                      margin: "5px 0",
+                      fontSize: "11px",
+                      margin: "6px 0",
+                      textAlign: "center",
                     }}
                   >
                     {skill.explanation}
                   </p>
-                  <p
-                    style={{
-                      fontSize: window.innerWidth <= 768 ? "10px" : "12px",
-                      margin: "5px 0",
-                    }}
-                  >
-                    {skill.level}
-                  </p>
+                  <div style={{ width: "100%" }}>
+                    <ProgressBar value={skill.levelValue} max={3} />
+                  </div>
                 </div>
               ))}
             </div>
