@@ -189,7 +189,8 @@ const skillsData = [
     name: "Raspberry Pi",
     level: "修練度 低",
     img: "img18",
-    explanation: "授業で習った程度の知識。いつか自前のものを買いたい。",
+    explanation:
+      "授業で習った程度の知識。自前のもの買ったのでサーバーとして運用したい",
     levelValue: 1,
     category: "ハードウェア",
   },

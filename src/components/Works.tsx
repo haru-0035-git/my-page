@@ -1,5 +1,4 @@
 // src/components/Works.tsx
-import exp from "constants";
 import React from "react";
 
 const worksData = [
@@ -33,7 +32,7 @@ const worksData = [
     title: "ToDoアプリ",
     githubUrl: "https://mytodo-beryl.vercel.app/",
     explanation:
-      "あるあるのToDoアプリです。Nextjsの勉強のために作成中です。※完成しましたKOKO",
+      "あるあるのToDoアプリです。Nextjsの勉強のために作成中です。修正したい場所があったので修正中",
     progress: "進捗率: 100%",
   },
 ];
@@ -121,7 +120,7 @@ const Works: React.FC = () => {
                 boxShadow: "0 0 5px #00ffff",
               }}
             >
-              githubを見る
+              GitHubまたはサイトへ
             </a>
           </div>
         ))}
