@@ -1,43 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
-import img1 from "../image/365.png"; // 画像のパスを指定
-import img2 from "../image/css.png"; // 画像のパスを指定
-import img3 from "../image/fastapi.png"; // 画像のパスを指定
-import img4 from "../image/flask.png"; // 画像のパスを指定
-import img5 from "../image/github.png"; // 画像のパスを指定
-import img6 from "../image/gitlab.png"; // 画像のパスを指定
-import img7 from "../image/html.webp"; // 画像のパスを指定
-import img8 from "../image/JS.png"; // 画像のパスを指定
-import img9 from "../image/MySQL.png"; // 画像のパスを指定
-import img10 from "../image/php.png"; // 画像のパスを指定
-import img11 from "../image/python.png"; // 画像のパスを指定
-import img12 from "../image/react.jpg"; // 画像のパスを指定
-import img13 from "../image/swift.jpg"; // 画像のパスを指定
-import img14 from "../image/tailwind.png"; // 画像のパスを指定
-import img15 from "../image/TS.png"; // 画像のパスを指定
-import img16 from "../image/ubuntu.png"; // 画像のパスを指定
-import img17 from "../image/Vitepng.png"; // 画像のパスを指定
+import "../styles/Body.css"; // Import the CSS file
+import img1 from "../image/365.png";
+import img2 from "../image/css.png";
+import img3 from "../image/fastapi.png";
+import img4 from "../image/flask.png";
+import img5 from "../image/github.png";
+import img6 from "../image/gitlab.png";
+import img7 from "../image/html.webp";
+import img8 from "../image/JS.png";
+import img9 from "../image/MySQL.png";
+import img10 from "../image/php.png";
+import img11 from "../image/python.png";
+import img12 from "../image/react.jpg";
+import img13 from "../image/swift.jpg";
+import img14 from "../image/tailwind.png";
+import img15 from "../image/TS.png";
+import img16 from "../image/ubuntu.png";
+import img17 from "../image/Vitepng.png";
 
 const images = [
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  img7,
-  img8,
-  img9,
-  img10,
-  img11,
-  img12,
-  img13,
-  img14,
-  img15,
-  img16,
-  img17,
-]; // 画像のパスを指定
+  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
+  img11, img12, img13, img14, img15, img16, img17,
+];
 
-const Portfolio = "My Portfolio"; // スライドに表示するテキスト
+const Portfolio = "My Portfolio";
 
 const ImageSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -75,78 +61,25 @@ const ImageSlider: React.FC = () => {
   }, [isTransitioning]);
 
   return (
-    <div
-      style={{
-        overflow: "hidden",
-        width: "100vw",
-        height: "100vh", // スライダーの高さ
-        position: "relative",
-      }}
-    >
-      {/* 青色の透過オーバーレイ */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh", // 高さを100vhに変更
-          backgroundColor: "rgba(13, 2, 33, 0.7)", // サイバーパンク風のオーバーレイ
-          zIndex: 3, // スライドの上にかぶせる
-        }}
-      />
+    <div className="slider-container">
+      <div className="slider-overlay" />
       <div>
-        <h1
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            color: "#00ffff", // ネオンカラーのテキスト
-            fontSize: "6rem", // フォントサイズ
-            zIndex: 4, // スライドの上にかぶせる
-            textShadow: "0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #ff00ff, 0 0 80px #ff00ff, 0 0 90px #ff00ff, 0 0 100px #ff00ff, 0 0 150px #ff00ff", // ネオン効果
-          }}
-        >
-          {Portfolio}
-        </h1>
+        <h1 className="slider-title">{Portfolio}</h1>
       </div>
       <div
+        className="slider-track"
         style={{
-          display: "flex",
-          width: `${images.length * 100}vw`, // 1画像分を100vwの幅で設定
+          width: `${images.length * 100}vw`,
           transform: `translateX(-${currentIndex * 100}vw)`,
           transition: isTransitioning
             ? "transform 1.5s cubic-bezier(0.25, 1, 0.5, 1)"
             : "none",
-          zIndex: 1,
-          position: "absolute",
-          justifyContent: "center", // 水平方向に中央に配置
-          alignItems: "center", // 垂直方向に中央に配置
         }}
         onTransitionEnd={handleTransitionEnd}
       >
         {images.map((src, index) => (
-          <div
-            key={index}
-            style={{
-              width: "100vw", // 1枚1枚が画面いっぱい
-              height: "100vh", // 画像も画面いっぱいに表示
-              display: "flex", // 中央配置のため
-              justifyContent: "center", // 水平方向の中央
-              alignItems: "center", // 垂直方向の中央
-              opacity: "0.8", // 画像の透明度
-            }}
-          >
-            <img
-              src={src}
-              alt={`Slide ${index}`}
-              style={{
-                width: window.innerWidth <= 768 ? "200px" : "500px", // スマホ時は小さく
-                height: window.innerWidth <= 768 ? "200px" : "500px",
-                objectFit: "contain",
-              }}
-            />
+          <div key={index} className="slide">
+            <img src={src} alt={`Slide ${index}`} className="slide-image" />
           </div>
         ))}
       </div>

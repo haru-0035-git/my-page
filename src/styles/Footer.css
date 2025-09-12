@@ -1,0 +1,23 @@
+/* src/components/Footer.css */
+.footer {
+  background-color: rgba(13, 2, 33, 0.8);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px #00ffff;
+  padding: 20px;
+  text-align: center;
+  color: #00ffff;
+}
+
+.footer p {
+  margin: 0 0 10px 0;
+}
+
+.footer a {
+  color: #f0f; /* Keep the original link color */
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

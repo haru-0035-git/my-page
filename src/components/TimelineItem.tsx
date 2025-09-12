@@ -4,88 +4,43 @@ import React, { useState, useEffect, useRef } from "react";
 interface TimelineItemProps {
   year: string;
   text: string;
-  isMobile: boolean;
 }
 
-const TimelineItem: React.FC<TimelineItemProps> = ({
-  year,
-  text,
-  isMobile,
-}) => {
+const TimelineItem: React.FC<TimelineItemProps> = ({ year, text }) => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentElement = elementRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
+        // 要素が画面内に入ったらisVisibleをtrueに、出たらfalseに設定
         setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.1,
+        threshold: 0.1, // 要素が10%見えたらトリガー
       }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      if (currentElement) {
+        observer.unobserve(currentElement);
+      }
+    };
   }, []);
 
   return (
-    <div
-      ref={elementRef}
-      style={{
-        display: "flex",
-        marginBottom: "30px",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
-      <div
-        style={{
-          width: isMobile ? "60px" : "100px",
-          flexShrink: 0,
-          textAlign: "right",
-          paddingRight: "20px",
-          fontSize: isMobile ? "14px" : "16px",
-          fontWeight: "bold",
-          color: "#f0f0f0",
-        }}
-      >
-        {year}
-      </div>
-      <div
-        style={{
-          width: "20px",
-          height: "20px",
-          backgroundColor: "#0d0221",
-          border: "4px solid #00ffff",
-          boxShadow: "0 0 10px #00ffff",
-          borderRadius: "50%",
-          marginRight: "20px",
-          marginTop: "-2px",
-          flexShrink: 0,
-          position: "relative",
-          zIndex: 2,
-          transform: "translateX(-2px)",
-        }}
-      />
-      <div
-        style={{
-          flex: 1,
-          backgroundColor: "rgba(13, 2, 33, 0.7)",
-          boxShadow: "0 0 10px #ff00ff",
-          padding: "10px 15px",
-          borderRadius: "5px",
-          fontSize: isMobile ? "14px" : "16px",
-          color: "#f0f0f0",
-          opacity: isVisible ? 1 : 0,
-          transform: `translateX(${isVisible ? 0 : "50px"})`,
-          transition: "opacity 0.8s ease-out, transform 0.8s ease-out",
-        }}
-      >
-        {text}
+    <div ref={elementRef} className={`timeline-item ${isVisible ? 'is-visible' : ''}`}>
+      <div className="timeline-item-dot" />
+      <div className="timeline-item-content">
+        <div className="timeline-item-text">
+          <div className="timeline-item-year">{year}</div>
+          <div className="timeline-item-explanation">{text}</div>
+        </div>
       </div>
     </div>
   );

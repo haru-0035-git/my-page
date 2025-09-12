@@ -1,6 +1,7 @@
 // src/components/Timeline.tsx
-import React, { useState, useEffect } from "react";
+import React from "react";
 import TimelineItem from "./TimelineItem";
+import "../styles/Timeline.css";
 
 const timelineData = [
   { year: "2023年04月", text: "専門学校入学 Python,MySQLに初めて触る" },
@@ -19,52 +20,11 @@ const timelineData = [
 ];
 
 const Timeline: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <section
-      style={{
-        backgroundColor: "#0d0221",
-        padding: isMobile ? "40px 10px" : "60px 20px",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: isMobile ? "100%" : "800px",
-          margin: "0 auto",
-          position: "relative",
-          padding: isMobile ? "0 10px" : "0",
-        }}
-      >
-        {/* 縦線 */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: isMobile ? "90px" : "130px",
-            width: "4px",
-            height: "100%",
-            backgroundColor: "#00ffff",
-            boxShadow: "0 0 5px #00ffff",
-            zIndex: 1,
-          }}
-        />
+    <section className="timeline-section">
+      <div className="timeline-container">
         {timelineData.map((item, index) => (
-          <TimelineItem
-            key={index}
-            year={item.year}
-            text={item.text}
-            isMobile={isMobile}
-          />
+          <TimelineItem key={index} year={item.year} text={item.text} />
         ))}
       </div>
     </section>

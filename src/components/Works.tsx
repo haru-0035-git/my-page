@@ -1,5 +1,6 @@
 // src/components/Works.tsx
 import React from "react";
+import "../styles/Works.css";
 
 const worksData = [
   {
@@ -39,86 +40,19 @@ const worksData = [
 
 const Works: React.FC = () => {
   return (
-    <section
-      style={{
-        padding: window.innerWidth <= 768 ? "20px 10px" : "40px 20px",
-        textAlign: "center",
-      }}
-    >
-      <h2
-        style={{
-          marginBottom: "30px",
-          fontSize: window.innerWidth <= 768 ? "24px" : "32px",
-          color: "#00ffff",
-          textShadow: "0 0 5px #00ffff, 0 0 10px #00ffff",
-        }}
-      >
-        作った作品一覧
-      </h2>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: window.innerWidth <= 768 ? "10px" : "20px",
-        }}
-      >
+    <section className="works-section">
+      <h2 className="works-title">作った作品一覧</h2>
+      <div className="works-container">
         {worksData.map((work, index) => (
-          <div
-            key={index}
-            style={{
-              border: "1px solid #ff00ff",
-              boxShadow: "0 0 10px #ff00ff",
-              borderRadius: "8px",
-              backgroundColor: "rgba(13, 2, 33, 0.7)",
-              width: window.innerWidth <= 768 ? "calc(100% - 40px)" : "200px",
-              padding: window.innerWidth <= 768 ? "15px" : "20px",
-              textAlign: "center",
-              margin: window.innerWidth <= 768 ? "5px 0" : "0",
-            }}
-          >
-            <h2
-              style={{
-                fontSize: window.innerWidth <= 768 ? "20px" : "24px",
-                marginBottom: "10px",
-                color: "#00ffff",
-              }}
-            >
-              {work.title}
-            </h2>
-            <p
-              style={{
-                fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-                margin: "10px 0",
-                color: "#f0f0f0",
-              }}
-            >
-              {work.explanation}
-            </p>
-            <p
-              style={{
-                fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-                margin: "10px 0",
-                color: "#f0f0f0",
-              }}
-            >
-              {work.progress}
-            </p>
+          <div key={index} className="work-card">
+            <h2 className="work-card-title">{work.title}</h2>
+            <p>{work.explanation}</p>
+            <p>{work.progress}</p>
             <a
               href={work.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-                display: "inline-block",
-                padding: "5px 10px",
-                backgroundColor: "#00ffff",
-                borderRadius: "4px",
-                textDecoration: "none",
-                color: "#0d0221",
-                fontWeight: "bold",
-                boxShadow: "0 0 5px #00ffff",
-              }}
+              className="work-card-link"
             >
               GitHubまたはサイトへ
             </a>
